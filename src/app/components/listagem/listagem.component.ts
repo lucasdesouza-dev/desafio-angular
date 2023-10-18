@@ -15,7 +15,6 @@ export class ListagemComponent implements OnInit {
     
     private router: Router
   ) {
-    // Pegando rota pra inicializar formulário quando der refresh na página
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.rota = event.url

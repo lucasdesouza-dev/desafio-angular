@@ -9,6 +9,7 @@ import { FilmesComponent } from './listagem/filmes/filmes.component';
 import { EspeciesComponent } from './listagem/especies/especies.component';
 import { VeiculosComponent } from './listagem/veiculos/veiculos.component';
 import { EspaconavesComponent } from './listagem/espaconaves/espaconaves.component';
+import { RotaComponent } from './rota/rota.component';
 
 
 
@@ -22,6 +23,7 @@ import { EspaconavesComponent } from './listagem/espaconaves/espaconaves.compone
     EspeciesComponent,
     VeiculosComponent,
     EspaconavesComponent,
+    RotaComponent,
    
   ],
   imports: [
@@ -35,7 +37,7 @@ import { EspaconavesComponent } from './listagem/espaconaves/espaconaves.compone
     FilmesComponent,
     EspeciesComponent,
     VeiculosComponent,
-    EspaconavesComponent,],
+    EspaconavesComponent, RotaComponent,],
   providers: [],
  
 })
