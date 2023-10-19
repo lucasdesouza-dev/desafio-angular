@@ -10,6 +10,8 @@ import { EspeciesComponent } from './listagem/especies/especies.component';
 import { VeiculosComponent } from './listagem/veiculos/veiculos.component';
 import { EspaconavesComponent } from './listagem/espaconaves/espaconaves.component';
 import { RotaComponent } from './rota/rota.component';
+import { ListaComponent } from './lista/lista.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -24,10 +26,11 @@ import { RotaComponent } from './rota/rota.component';
     VeiculosComponent,
     EspaconavesComponent,
     RotaComponent,
+    ListaComponent,
    
   ],
   imports: [
-    CommonModule,RouterModule,
+    CommonModule,RouterModule,HttpClientModule
     
   ],exports:[
     ButtonComponent,
@@ -37,7 +40,9 @@ import { RotaComponent } from './rota/rota.component';
     FilmesComponent,
     EspeciesComponent,
     VeiculosComponent,
-    EspaconavesComponent, RotaComponent,],
+    EspaconavesComponent,
+    RotaComponent,
+    ListaComponent,],
   providers: [],
  
 })

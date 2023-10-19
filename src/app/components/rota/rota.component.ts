@@ -15,7 +15,6 @@ export class RotaComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.rota = event.url
-        console.log(this.rota)
       }
     });
     

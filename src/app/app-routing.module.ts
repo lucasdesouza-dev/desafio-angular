@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -13,10 +14,11 @@ const routes: Routes = [
     import('./pages/listagem/listagem.module').then(m => m.ListagemModule),
 }, 
 { path: '**', redirectTo: '' },
- {path: 'listagem', redirectTo: '' },];
+ {path: 'listagem', redirectTo: '' },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ preloadingStrategy: PreloadAllModules,})],
+  imports: [CommonModule,RouterModule.forRoot(routes,{ preloadingStrategy: PreloadAllModules,})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

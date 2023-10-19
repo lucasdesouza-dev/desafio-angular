@@ -1,0 +1,12 @@
+<div class=" shadow-boxlist flex justify-center items-center rounded-xl border border-[#777777
+] ">
+<ul class="w-full px-32 py-10">
+  <li 
+  class="cursor-pointer hover:scale-105 border-b border-[#DDDDDD] px-2 py-6 w-full  flex justify-between items-center"
+  *ngFor="let item of lista">
+   <p class="text-sm">{{item.name?item.name:item.title}}</p> 
+    <img src="../../../assets/icons/chevron-right.svg" alt="">
+  </li>
+</ul>
+
+</div>
