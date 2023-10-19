@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
+import{List} from "../../../types/types"
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListaComponent implements OnInit {
 
-  @Input() lista!:any
+  @Input() lista!:List[]
   ngOnInit(): void {
   }
 

@@ -7,8 +7,8 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./rota.component.scss']
 })
 export class RotaComponent implements OnInit {
-  rota:string=""
-  rotaExibicao:string=""
+  rota!:string
+  rotaExibicao!:string
   constructor(
     private router: Router
   ) {

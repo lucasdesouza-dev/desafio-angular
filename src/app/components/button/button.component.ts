@@ -19,7 +19,6 @@ export class ButtonComponent {
   rota(rota:string){
   const rotaAtualizada=  rota.toLocaleLowerCase()
   this.router.navigateByUrl(`listagem/${rotaAtualizada}`);
-  console.log(rota)
 }
 
 
