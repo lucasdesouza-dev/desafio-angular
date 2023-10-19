@@ -20,8 +20,8 @@ export class RotaComponent implements OnInit {
     
   }
   ngOnInit(): void {
- const arrayRota = this.rota.split("/")
- this.rotaExibicao = arrayRota[arrayRota.length-1]
+    const arrayRota = this.rota.split("/")
+    this.rotaExibicao = arrayRota[arrayRota.length-1][0].toLocaleUpperCase() + arrayRota[arrayRota.length-1].substring(1)
   }
 
 }
