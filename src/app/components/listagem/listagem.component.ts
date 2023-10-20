@@ -7,9 +7,9 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./listagem.component.scss']
 })
 export class ListagemComponent implements OnInit {
-  rota:string=""
+  rota!:string
   tab:number=0
-
+  urlParts! :string[]
 
   constructor(
     
@@ -18,6 +18,7 @@ export class ListagemComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.rota = event.url
+        this.urlParts = event.url.split('/');
       }
     });
    
@@ -46,6 +47,9 @@ export class ListagemComponent implements OnInit {
     }
     if (this.rota === '/listagem/espaconaves') {
       this.tab = 6
+    }
+    if (this.urlParts.length ===4) {
+      this.tab = 7
     }
   }
 }

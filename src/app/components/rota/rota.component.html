@@ -3,5 +3,12 @@
   <img 
   class="w-2"
   src="../../../assets/icons/chevron-right.svg" alt="">
-  <p>{{rotaExibicao}}</p>
+  <p>{{rotaPrincipal}}</p>
+  <div
+    *ngIf="rotaDetalhes"
+  class="flex gap-2 justify-center items-center">
+    <img 
+    class="w-2"
+    src="../../../assets/icons/chevron-right.svg" alt="">
+    <p>{{rotaDetalhes}}</p></div>
 </div>

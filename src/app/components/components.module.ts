@@ -12,6 +12,7 @@ import { EspaconavesComponent } from './listagem/espaconaves/espaconaves.compone
 import { RotaComponent } from './rota/rota.component';
 import { ListaComponent } from './lista/lista.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetalhesComponent } from './detalhes/detalhes.component';
 
 
 
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     EspaconavesComponent,
     RotaComponent,
     ListaComponent,
+    DetalhesComponent,
    
   ],
   imports: [
@@ -42,7 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
     VeiculosComponent,
     EspaconavesComponent,
     RotaComponent,
-    ListaComponent,],
+    ListaComponent,DetalhesComponent,],
   providers: [],
  
 })

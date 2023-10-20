@@ -8,7 +8,8 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class RotaComponent implements OnInit {
   rota!:string
-  rotaExibicao!:string
+  rotaPrincipal!:string
+  rotaDetalhes!:string
   constructor(
     private router: Router
   ) {
@@ -21,7 +22,20 @@ export class RotaComponent implements OnInit {
   }
   ngOnInit(): void {
     const arrayRota = this.rota.split("/")
-    this.rotaExibicao = arrayRota[arrayRota.length-1][0].toLocaleUpperCase() + arrayRota[arrayRota.length-1].substring(1)
+    this.rotaPrincipal = this.getRotaDetalhes(arrayRota,2)
+    this. rotaDetalhes = this.getRotaDetalhes(arrayRota,3)
+    
+    
+  }
+
+  getRotaDetalhes(arrayRota:string[],posicao:number){
+    if (arrayRota.length>=posicao) {
+      
+      return arrayRota[posicao][0]?.toLocaleUpperCase()+ arrayRota[posicao].substring(1)
+    }else
+    return ""
+
+    
   }
 
 }

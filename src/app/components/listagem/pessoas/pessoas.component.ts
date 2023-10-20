@@ -21,6 +21,8 @@ export class PessoasComponent implements OnInit{
 
   setLista(res:any){
     this.lista = res.results
+    console.log(this.lista)
+
 
   }
 }

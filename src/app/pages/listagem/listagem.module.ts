@@ -9,6 +9,7 @@ import { FilmesComponent } from 'src/app/components/listagem/filmes/filmes.compo
 import { EspeciesComponent } from 'src/app/components/listagem/especies/especies.component';
 import { VeiculosComponent } from 'src/app/components/listagem/veiculos/veiculos.component';
 import { EspaconavesComponent } from 'src/app/components/listagem/espaconaves/espaconaves.component';
+import { DetalhesComponent } from 'src/app/components/detalhes/detalhes.component';
 
 const routes: Routes = [
   {
@@ -18,21 +19,51 @@ const routes: Routes = [
       {
         path: 'pessoas',
         component: PessoasComponent,
+        children: [
+          {
+          path: ':id',
+          component: DetalhesComponent,
+        }]
       },{
         path: 'planetas',
         component: PlanetasComponent,
+        children: [
+          {
+          path: ':id',
+          component: DetalhesComponent,
+        }]
       },{
         path: 'filmes',
         component: FilmesComponent,
+        children: [
+          {
+          path: ':id',
+          component: DetalhesComponent,
+        }]
       },{
         path: 'especies',
         component: EspeciesComponent,
+        children: [
+          {
+          path: ':id',
+          component: DetalhesComponent,
+        }]
       },{
         path: 'veiculos',
         component: VeiculosComponent,
+        children: [
+          {
+          path: ':id',
+          component: DetalhesComponent,
+        }]
       },{
         path: 'espaconaves',
         component: EspaconavesComponent,
+        children: [
+          {
+          path: ':id',
+          component: DetalhesComponent,
+        }]
       },
     ]
   },
