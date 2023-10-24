@@ -10,7 +10,7 @@ export class ListagemComponent implements OnInit {
   rota!:string
   tab:number=0
   urlParts! :string[]
-
+  urlDetalhes!:string
   constructor(
     
     private router: Router
@@ -23,7 +23,14 @@ export class ListagemComponent implements OnInit {
     });
    
   }
-  
+  btnDetalhespage(id:string,rota:string){
+   let idFormat =id.replace(/\s/g, "-")
+    let currentUrl = `/listagem/${rota}/${idFormat}`;
+  this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {  
+    this.router.navigate([currentUrl]);
+  });
+    
+  }
   
   ngOnInit(): void {
     if (this.rota === '/listagem') {

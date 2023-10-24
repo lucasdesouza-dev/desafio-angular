@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpclientService } from 'src/app/services/httpclient/httpclient.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { HttpclientService } from 'src/app/services/httpclient/httpclient.servic
 })
 export class FilmesComponent implements OnInit {
   constructor(private httpclientService:HttpclientService){}
+  @Output() btnDetalhespage= new EventEmitter();
+
   lista:any
  
  
@@ -19,6 +21,9 @@ export class FilmesComponent implements OnInit {
    })
   }
 
+  btnDetalhes(id:string){
+    this.btnDetalhespage.emit(id)
+  }
 
   setLista(res:any){
     this.lista = res.results
