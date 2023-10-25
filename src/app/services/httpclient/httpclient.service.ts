@@ -3,18 +3,21 @@ import { HttpClient } from "@angular/common/http"
 import { map } from 'rxjs';
 import { environment } from "../../environments/environment"
 import { List } from 'src/types/types';
+import { LoaderService } from 'src/app/components/loaderNovo/loader.service';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpclientService {
+export class HttpclientService  {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, 
+    ) { }
 
 
 
 
 
   get(segmento: string) {
+   
     return this.httpClient.get(`${environment.API_URL}${segmento}`)
       .pipe(
         map(res => {
@@ -22,5 +25,7 @@ export class HttpclientService {
         }),
       );
   }
+
+
 }
 

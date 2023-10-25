@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpclientService } from 'src/app/services/httpclient/httpclient.service';
 import { Character, Film, List, Planet, Species, Starship, Vehicle } from 'src/types/types';
+import { LoaderService } from '../loaderNovo/loader.service';
 
 @Component({
   selector: 'app-detalhes',
@@ -9,7 +10,7 @@ import { Character, Film, List, Planet, Species, Starship, Vehicle } from 'src/t
 })
 export class DetalhesComponent implements OnInit {
   urlDetalhes!: string[]
-  constructor(private httpclientService: HttpclientService) { }
+  constructor(private httpclientService: HttpclientService,private loaderService:LoaderService) { }
   detalhes!: List
   name!: string
   films:Film[]=[]
@@ -25,13 +26,16 @@ export class DetalhesComponent implements OnInit {
   }
 
  async getdata(){
+  this.loaderShow()
     this.urlDetalhes = JSON.parse(sessionStorage.getItem('@url') ?? "")
 
-  await  this.httpclientService.get(`${this.urlDetalhes[0]}/${this.urlDetalhes[1]}`).subscribe((res) => {
+ await  this.httpclientService.get(`${this.urlDetalhes[0]}/${this.urlDetalhes[1]}`).subscribe((res) => {
       this.setLista(res)
+
       if (res.films) {
         res.films.map((item)=>{
           this.getFilmes(item)
+
         })
       } if (res.starships) {
          res.starships.map((item)=>{
@@ -58,16 +62,20 @@ export class DetalhesComponent implements OnInit {
      this.getPessoas(item)
     
    })
- }
-       
-       
-       
-        
-
-        
-    })
-
+   
   }
+  this.loaderHide()
+  
+})
+
+}
+
+loaderShow(){
+  this.loaderService.show()
+}
+loaderHide(){
+  this.loaderService.hide()
+}
   setLista(res: List) {
     this.detalhes = res
     console.log(res)
@@ -77,10 +85,15 @@ export class DetalhesComponent implements OnInit {
     return name
   }
   getFilmes(film: string) {
+    
     const filmUrl = film.split('/')
     this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
      this.setFilms(res)
+     
+
     })
+    
+
   }
   setFilms(res:Film) {
     res&& this.films.push(res) 

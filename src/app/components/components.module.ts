@@ -13,6 +13,8 @@ import { RotaComponent } from './rota/rota.component';
 import { ListaComponent } from './lista/lista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetalhesComponent } from './detalhes/detalhes.component';
+import { LoaderModule } from './loaderNovo/loader.module';
+import { LoaderService } from './loaderNovo/loader.service';
 
 
 
@@ -33,7 +35,6 @@ import { DetalhesComponent } from './detalhes/detalhes.component';
   ],
   imports: [
     CommonModule,RouterModule,HttpClientModule
-    
   ],exports:[
     ButtonComponent,
     HeaderComponent, 
