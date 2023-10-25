@@ -1,11 +1,11 @@
 export interface Button {
-  titulo:string
-  rota:string
+  titulo: string
+  rota: string
 }
 
 
 export interface Character {
-  birth_year: string;
+  birth_year?: string;
   created: string;
   edited: string;
   eye_color: string;
@@ -112,4 +112,4 @@ export interface Starship {
   url: string;
 }
 
-export interface List extends Character,Planet,Film,Species,Vehicle,Starship {}
+export interface List extends Character, Planet, Film, Species, Vehicle, Starship { }

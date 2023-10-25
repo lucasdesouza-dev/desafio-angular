@@ -5,7 +5,7 @@
   
   class="cursor-pointer hover:scale-105 border-b border-[#DDDDDD] px-2 py-6 w-full  flex justify-between items-center"
   *ngFor="let item of lista">
-   <p (click)="detalhes(item.name?item.name:item.title)"
+   <p (click)="detalhes(item.name?item.name:item.title,item.url)"
    
    class="text-sm">{{item.name?item.name:item.title}}</p> 
     <img src="../../../assets/icons/chevron-right.svg" alt="">

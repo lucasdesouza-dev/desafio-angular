@@ -7,9 +7,9 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./rota.component.scss']
 })
 export class RotaComponent implements OnInit {
-  rota!:string
-  rotaPrincipal!:string
-  rotaDetalhes!:string
+  rota!: string
+  rotaPrincipal!: string
+  rotaDetalhes!: string
   constructor(
     private router: Router
   ) {
@@ -18,24 +18,24 @@ export class RotaComponent implements OnInit {
         this.rota = event.url
       }
     });
-    
+
   }
   ngOnInit(): void {
     const arrayRota = this.rota.split("/")
-    this.rotaPrincipal = this.getRotaDetalhes(arrayRota,2)
-    this. rotaDetalhes = this.getRotaDetalhes(arrayRota,3)
-    
-    
+    this.rotaPrincipal = this.getRotaDetalhes(arrayRota, 2)
+    this.rotaDetalhes = this.getRotaDetalhes(arrayRota, 3)
+
+
   }
 
-  getRotaDetalhes(arrayRota:string[],posicao:number){
-    if (arrayRota.length>=posicao) {
-      
-      return arrayRota[posicao][0]?.toLocaleUpperCase()+ arrayRota[posicao].substring(1)
-    }else
-    return ""
+  getRotaDetalhes(arrayRota: string[], posicao: number) {
+    if (arrayRota.length >= posicao) {
 
-    
+      return arrayRota[posicao] ? arrayRota[posicao][0]?.toLocaleUpperCase() + arrayRota[posicao].substring(1) : ""
+    } else
+      return ""
+
+
   }
 
 }

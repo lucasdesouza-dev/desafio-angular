@@ -1,15 +1,23 @@
-<div class=" shadow-boxlist flex justify-center items-center rounded-xl border border-[#777777
+<div *ngIf="detalhes" class=" p-4 shadow-boxlist flex flex-col  rounded-xl border border-[#777777
 ] ">
-<ul class="w-full px-32 py-10">
-  <li 
-  
-  class="cursor-pointer hover:scale-105 border-b border-[#DDDDDD] px-2 py-6 w-full  flex justify-between items-center"
-  >
-   <p 
-   
-   class="text-sm">test</p> 
-    <img src="../../../assets/icons/chevron-right.svg" alt="">
-  </li>
-</ul>
 
+  <h1
+    class="text-sm">{{getName()}}
+  </h1> 
+  <div *ngIf="urlDetalhes[0]==='people'">
+    <p> homeworld:{{detalhes.homeworld}}</p>
+    <p>height: {{detalhes.height}}cm</p>
+    <p>mass: {{detalhes.mass}}kg</p>
+    <p>skin color: {{detalhes.skin_color}}</p>
+    <p>eye color: {{detalhes.eye_color}}</p>
+    <p>gender: {{detalhes.gender}}</p>
+  </div>
+  <div class="border-b border-[#DDDDDD] px-2">
+    <h1>Links Realcionados</h1>
+    <div>Filmes</div>
+    <ul>
+      <li *ngFor="let film of detalhes.films">{{getFilmes(film )}}</li>
+    </ul>
+    
+  </div>
 </div>

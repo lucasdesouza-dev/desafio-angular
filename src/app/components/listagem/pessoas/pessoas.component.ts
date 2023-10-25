@@ -5,28 +5,27 @@ import { HttpclientService } from 'src/app/services/httpclient/httpclient.servic
   templateUrl: './pessoas.component.html',
   styleUrls: ['./pessoas.component.scss']
 })
-export class PessoasComponent implements OnInit{
-  constructor(private httpclientService:HttpclientService){}
-  @Output() btnDetalhespage= new EventEmitter();
+export class PessoasComponent implements OnInit {
+  constructor(private httpclientService: HttpclientService) { }
+  @Output() btnDetalhespage = new EventEmitter();
 
-  
-  lista:any
- 
 
- 
+  lista: any
+
+
+
   ngOnInit(): void {
-   this.httpclientService.get('people').subscribe((res)=>{
-    this.setLista(res)
-   })
+    this.httpclientService.get('people').subscribe((res) => {
+      this.setLista(res)
+    })
   }
 
-  btnDetalhes(id:string){
+  btnDetalhes(id: string) {
     this.btnDetalhespage.emit(id)
   }
 
-  setLista(res:any){
+  setLista(res: any) {
     this.lista = res.results
-    console.log(this.lista)
 
 
   }
