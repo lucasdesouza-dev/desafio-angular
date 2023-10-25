@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpclientService } from 'src/app/services/httpclient/httpclient.service';
-import { List } from 'src/types/types';
+import { Character, Film, List, Planet, Species, Starship, Vehicle } from 'src/types/types';
 
 @Component({
   selector: 'app-detalhes',
@@ -12,18 +12,65 @@ export class DetalhesComponent implements OnInit {
   constructor(private httpclientService: HttpclientService) { }
   detalhes!: List
   name!: string
+  films:Film[]=[]
+  espaconaves:Starship[]=[]
+  veiculos:Vehicle[]=[]
+  planetas:Planet[]=[]
+  especies:Species[]=[]
+  pessoas:Character[]=[]
 
 
   ngOnInit(): void {
+    this.getdata()
+  }
+
+ async getdata(){
     this.urlDetalhes = JSON.parse(sessionStorage.getItem('@url') ?? "")
 
-    this.httpclientService.get(`${this.urlDetalhes[0]}/${this.urlDetalhes[1]}`).subscribe((res) => {
+  await  this.httpclientService.get(`${this.urlDetalhes[0]}/${this.urlDetalhes[1]}`).subscribe((res) => {
       this.setLista(res)
+      if (res.films) {
+        res.films.map((item)=>{
+          this.getFilmes(item)
+        })
+      } if (res.starships) {
+         res.starships.map((item)=>{
+          this.getStarchips(item)
+        })
+      } if (res.vehicles) {
+         res.vehicles.map((item)=>{
+          this.getVeiculos(item)
+         
+        })
+      }
+      if (res.planets) {
+        res.planets.map((item)=>{
+         this.getPlanetas(item)
+        
+       })
+     }if (res.species) {
+      res.species.map((item)=>{
+       this.getEspecies(item)
+      
+     })
+   }if (res.characters) {
+    res.characters.map((item)=>{
+     this.getPessoas(item)
+    
+   })
+ }
+       
+       
+       
+        
+
+        
     })
+
   }
   setLista(res: List) {
     this.detalhes = res
-    console.log(this.detalhes)
+    console.log(res)
   }
   getName() {
     const name = this.detalhes?.name ? this.detalhes.name : this.detalhes?.title
@@ -31,10 +78,59 @@ export class DetalhesComponent implements OnInit {
   }
   getFilmes(film: string) {
     const filmUrl = film.split('/')
-    const name = this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
-      console.log(res)
-      return res
+    this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
+     this.setFilms(res)
     })
-    return name
+  }
+  setFilms(res:Film) {
+    res&& this.films.push(res) 
+  }
+  getStarchips(url: string) {
+    const filmUrl = url.split('/')
+    this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
+     this.setStarchips(res)
+    })
+  }
+  setStarchips(res:Starship) {
+    res&& this.espaconaves.push(res) 
+  }
+
+  getVeiculos(url: string) {
+    const filmUrl = url.split('/')
+    this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
+     this.setVeiculos(res)
+    })
+  }
+  setVeiculos(res:Vehicle) {
+    res&& this.veiculos.push(res) 
+  }
+
+  getPlanetas(url: string) {
+    const filmUrl = url.split('/')
+    this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
+     this.setPlanetas(res)
+    })
+  }
+  setPlanetas(res:Planet) {
+    res&& this.planetas.push(res) 
+  }
+  getEspecies(url: string) {
+    const filmUrl = url.split('/')
+    this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
+     this.setEspecies(res)
+    })
+  }
+  setEspecies(res:Species) {
+    res&& this.especies.push(res) 
+  }
+  getPessoas(url: string) {
+    const filmUrl = url.split('/')
+    this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
+     this.setPessoas(res)
+    })
+  }
+  setPessoas(res:Character) {
+    res&& this.pessoas.push(res) 
   }
 }
+

@@ -1,10 +1,10 @@
-<div *ngIf="detalhes" class=" p-4 shadow-boxlist flex flex-col  rounded-xl border border-[#777777
+<div *ngIf="detalhes  " class=" p-4 shadow-boxlist flex flex-col  rounded-xl border border-[#777777
 ] ">
 
   <h1
     class="text-sm">{{getName()}}
   </h1> 
-  <div *ngIf="urlDetalhes[0]==='people'">
+  <div *ngIf="urlDetalhes[0] ==='people'">
     <p> homeworld:{{detalhes.homeworld}}</p>
     <p>height: {{detalhes.height}}cm</p>
     <p>mass: {{detalhes.mass}}kg</p>
@@ -12,12 +12,41 @@
     <p>eye color: {{detalhes.eye_color}}</p>
     <p>gender: {{detalhes.gender}}</p>
   </div>
-  <div class="border-b border-[#DDDDDD] px-2">
+  <div class=" border-b border-[#DDDDDD] px-2">
     <h1>Links Realcionados</h1>
-    <div>Filmes</div>
-    <ul>
-      <li *ngFor="let film of detalhes.films">{{getFilmes(film )}}</li>
+    <div class="flex">
+    <div
+    class="p-4"
+    *ngIf="films.length != 0"> <h2>Filmes</h2>
+      <ul>
+      <li *ngFor="let film of films">{{film.title}}</li>
     </ul>
-    
+  </div>
+  <div  class="p-4" *ngIf="espaconaves.length != 0"> <h2>Espaçonaves</h2>
+    <ul>
+    <li *ngFor="let espaconave of espaconaves">{{espaconave.name}}</li>
+  </ul>
+</div>
+<div  class="p-4" *ngIf="veiculos.length != 0"> <h2>Veiculos</h2>
+  <ul>
+  <li *ngFor="let veiculo of veiculos">{{veiculo.name}}</li>
+</ul>
+</div>
+<div  class="p-4" *ngIf="planetas.length != 0"> <h2>Planetas</h2>
+  <ul>
+  <li *ngFor="let planeta of planetas">{{planeta.name}}</li>
+</ul>
+</div>
+<div  class="p-4" *ngIf="especies.length != 0"> <h2>Especies</h2>
+  <ul>
+  <li *ngFor="let especie of especies">{{especie.name}}</li>
+</ul>
+</div>
+<div  class="p-4" *ngIf="pessoas.length != 0"> <h2>Pessoas</h2>
+  <ul>
+  <li *ngFor="let pessoa of pessoas">{{pessoa.name}}</li>
+</ul>
+</div>
+    </div>
   </div>
 </div>
