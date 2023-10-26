@@ -9,7 +9,11 @@ module.exports = {
       '3xl': '4px 4px 10px  rgba(0, 0, 0, 1.0)',
      'boxlist' : '0px 4px 4px 0px #00000040'
 
-    }},
+    },lineHeight: {
+      '14': '54px',
+    }
+  
+  },
     keyframes: {
       scale: {
         '0%': { transform: 'scale(1)' },
@@ -18,6 +22,9 @@ module.exports = {
     },
     animation: {
       scale: 'scale 1s infinite alternate'
+    },
+    fontFamily: {
+      'poppins': ['Poppins', 'sans-serif']
     }
   
   },

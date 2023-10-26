@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpclientService } from 'src/app/services/httpclient/httpclient.service';
+import { LoaderService } from '../../loaderNovo/loader.service';
 
 @Component({
   selector: 'app-filmes',
@@ -7,7 +8,7 @@ import { HttpclientService } from 'src/app/services/httpclient/httpclient.servic
   styleUrls: ['./filmes.component.scss']
 })
 export class FilmesComponent implements OnInit {
-  constructor(private httpclientService:HttpclientService){}
+  constructor(private httpclientService:HttpclientService, private loaderService:LoaderService){}
   @Output() btnDetalhespage= new EventEmitter();
 
   lista:any
@@ -16,9 +17,16 @@ export class FilmesComponent implements OnInit {
  
  
   ngOnInit(): void {
-   this.httpclientService.get('films').subscribe((res)=>{
-    this.setLista(res)
-   })
+  this.getData()
+  }
+
+  getData(){
+    this.loaderService.show()
+    this.httpclientService.get('films').subscribe((res)=>{
+      this.setLista(res)
+      this.loaderService.hide()
+
+     })
   }
 
   btnDetalhes(id:string){

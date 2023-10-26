@@ -19,6 +19,7 @@ export class DetalhesComponent implements OnInit {
   planetas:Planet[]=[]
   especies:Species[]=[]
   pessoas:Character[]=[]
+  planetaNatal!:string
 
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class DetalhesComponent implements OnInit {
 
  await  this.httpclientService.get(`${this.urlDetalhes[0]}/${this.urlDetalhes[1]}`).subscribe((res) => {
       this.setLista(res)
+    res.homeworld&&  this.getPlanetaNatal(res.homeworld)
 
       if (res.films) {
         res.films.map((item)=>{
@@ -62,7 +64,17 @@ export class DetalhesComponent implements OnInit {
      this.getPessoas(item)
     
    })
+  }
+  if (res.residents) {
+   res.residents.map((item)=>{
+    this.getPessoas(item)
    
+  })}
+  if (res.people) {
+    res.people.map((item)=>{
+      this.getPessoas(item)
+      
+    })
   }
   this.loaderHide()
   
@@ -83,6 +95,12 @@ loaderHide(){
   getName() {
     const name = this.detalhes?.name ? this.detalhes.name : this.detalhes?.title
     return name
+  }
+  getPlanetaNatal(url:string) {
+    const filmUrl = url.split('/')
+    this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
+    this.planetaNatal = res.name
+    })
   }
   getFilmes(film: string) {
     
