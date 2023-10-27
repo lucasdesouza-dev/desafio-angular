@@ -27,7 +27,7 @@ export class DetalhesComponent implements OnInit {
   }
 
   async getdata() {
-    this.loaderShow()
+    // this.loaderShow()
     this.urlDetalhes = JSON.parse(sessionStorage.getItem('@url') ?? "")
 
     await this.httpclientService.get(`${this.urlDetalhes[0]}/${this.urlDetalhes[1]}`).subscribe((res) => {
@@ -77,7 +77,7 @@ export class DetalhesComponent implements OnInit {
 
         })
       }
-      this.loaderHide()
+      //   this.loaderHide()
 
     })
 

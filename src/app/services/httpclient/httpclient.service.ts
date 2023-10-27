@@ -12,21 +12,32 @@ export class HttpclientService {
   constructor(private httpClient: HttpClient, private loaderService: LoaderService
   ) { }
 
-
+  quantReq: number = 0
 
 
 
   get(segmento: string) {
-
+    this.quantReq++
+    this.loaderService.show()
     return this.httpClient.get(`${environment.API_URL}${segmento}`)
       .pipe(
         map(res => {
+          this.quantReq--
+          if (this.quantReq == 0) {
+            this.loaderService.hide()
+          }
           return res as List;
         }),
         catchError(error => {
-          this.loaderService.hide()
-          // Exibir um alerta com a mensagem de erro
-          alert(`Ocorreu um erro: ${error.message}`);
+          this.quantReq--
+          if (this.quantReq == 0) {
+
+
+            this.loaderService.hide()
+
+            // Exibir um alerta com a mensagem de erro
+            alert(`Ocorreu um erro: ${error.message}`);
+          }
 
           // Re-lançar o erro para que outros operadores ou subscrições possam lidar com ele
           return throwError(() => error);
