@@ -7,17 +7,17 @@ import { LoaderService } from 'src/app/components/loaderNovo/loader.service';
 @Injectable({
   providedIn: 'root'
 })
-export class HttpclientService  {
+export class HttpclientService {
 
-  constructor(private httpClient: HttpClient, private loaderService:LoaderService
-    ) { }
+  constructor(private httpClient: HttpClient, private loaderService: LoaderService
+  ) { }
 
 
 
 
 
   get(segmento: string) {
-   
+
     return this.httpClient.get(`${environment.API_URL}${segmento}`)
       .pipe(
         map(res => {
@@ -27,9 +27,9 @@ export class HttpclientService  {
           this.loaderService.hide()
           // Exibir um alerta com a mensagem de erro
           alert(`Ocorreu um erro: ${error.message}`);
-          
+
           // Re-lançar o erro para que outros operadores ou subscrições possam lidar com ele
-          return throwError(error);
+          return throwError(() => error);
         })
       );
   }

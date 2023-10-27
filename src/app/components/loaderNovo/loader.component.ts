@@ -8,21 +8,18 @@ import { LoaderService } from './loader.service'
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.scss']
 })
-export class LoaderComponent implements OnInit {
+export class LoaderComponent {
 
-  
 
-  constructor(public  loaderService:LoaderService){
 
-  }
-  
-  public loading : Observable<boolean> = this.loaderService.isLoading$
-  
-  
-  
-  ngOnInit(): void {
-  console.log(this.loading)
+  constructor(public loaderService: LoaderService) {
 
   }
+
+  public loading: Observable<boolean> = this.loaderService.isLoading$
+
+
+
+
 
 }

@@ -1,20 +1,29 @@
-<section >
-  <div class="relative w-full h-[95vh]  flex items-center justify-center">
-    <div class="w-full gap-24 grid-rows-2 grid-cols-3 grid place-items-center">
-
-  <app-button  *ngFor="let item of buttons " [item]="item"></app-button>
-
-</div >
-<img 
-class="absolute top-8 left-80"
-src="../../../assets/starfighter 1.svg" alt="">
-<img 
-class="absolute top-24 right-32 -z-10 "
-src="../../../assets/space-station-moon-construction 2.svg" alt="">
-<img 
-class="absolute bottom-32 right-80 w-44 rotate-180 "
-src="../../../assets/starfighter 1.svg" alt=""></div>
-<img 
-class="absolute -bottom-2 left-28 -z-10  "
-src="../../../assets/planet-ringed 1.svg" alt="">
+<section class="w-full">
+  <div class="relative w-full h-[95vh] flex items-center justify-center">
+    <div
+      class="w-full flex flex-col gap-4 sm:gap-24 sm:grid sm:grid-rows-2 sm:grid-cols-3 place-items-center"
+    >
+      <app-button *ngFor="let item of buttons" [item]="item"></app-button>
+    </div>
+    <img
+      class="absolute top-8 left-80 -z-10"
+      src="../../../assets/starfighter 1.svg"
+      alt=""
+    />
+    <img
+      class="absolute top-24 right-32 -z-10"
+      src="../../../assets/space-station-moon-construction 2.svg"
+      alt=""
+    />
+    <img
+      class="absolute bottom-32 right-80 w-44 rotate-180 -z-10"
+      src="../../../assets/starfighter 1.svg"
+      alt=""
+    />
+  </div>
+  <img
+    class="absolute -bottom-2 left-28 -z-10"
+    src="../../../assets/planet-ringed 1.svg"
+    alt=""
+  />
 </section>

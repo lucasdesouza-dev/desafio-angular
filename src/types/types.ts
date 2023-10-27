@@ -112,4 +112,11 @@ export interface Starship {
   url: string;
 }
 
+export interface SwapiResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: List[];
+}
+
 export interface List extends Character, Planet, Film, Species, Vehicle, Starship { }

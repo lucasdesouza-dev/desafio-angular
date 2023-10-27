@@ -1,6 +1,6 @@
 <div
   *ngIf="detalhes"
-  class="p-4 shadow-boxlist flex flex-col rounded-xl border border-[#777777 ]"
+  class="sm:p-4 shadow-boxlist flex flex-col rounded-xl border border-[#777777 ]"
 >
   <h1 class="text-4xl leading-14">{{ getName() }}</h1>
   <div class="p-4">
@@ -85,7 +85,7 @@
   <div class="px-2">
     <h1 class="text-2xl">Links Realcionados</h1>
     <div class="border-b border-[#DDDDDD]"></div>
-    <div class="flex">
+    <div class="flex items-center flex-wrap">
       <div class="p-4" *ngIf="films.length != 0">
         <h2>Filmes</h2>
         <ul class="flex flex-col gap-1">
