@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http"
 import { catchError, map, throwError } from 'rxjs';
 import { environment } from "../../environments/environment"
 import { List } from 'src/types/types';
-import { LoaderService } from 'src/app/components/loaderNovo/loader.service';
+import { LoaderService } from 'src/app/components/loader/loader.service';
 @Injectable({
   providedIn: 'root'
 })

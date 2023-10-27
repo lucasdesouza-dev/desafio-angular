@@ -1,13 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { List } from "../../../types/types"
+import { LoaderService } from '../loader/loader.service';
+import { Observable, map } from 'rxjs';
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.scss']
 })
 export class ListaComponent implements OnInit {
+  constructor(private loaderService: LoaderService) { }
   @Output() btnDetalhes = new EventEmitter();
-
+  loader: Observable<boolean> = this.loaderService.isLoading$.pipe(map(val => !val))
   @Input() lista!: List[]
   ngOnInit(): void {
   }

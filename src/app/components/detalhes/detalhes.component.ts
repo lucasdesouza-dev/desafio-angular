@@ -1,7 +1,8 @@
+import { Observable, map } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { HttpclientService } from 'src/app/services/httpclient/httpclient.service';
 import { Character, Film, List, Planet, Species, Starship, Vehicle } from 'src/types/types';
-import { LoaderService } from '../loaderNovo/loader.service';
+import { LoaderService } from '../loader/loader.service';
 
 @Component({
   selector: 'app-detalhes',
@@ -20,7 +21,7 @@ export class DetalhesComponent implements OnInit {
   especies: Species[] = []
   pessoas: Character[] = []
   planetaNatal!: string
-
+  loader: Observable<boolean> = this.loaderService.isLoading$.pipe(map(val => !val))
 
   ngOnInit(): void {
     this.getdata()

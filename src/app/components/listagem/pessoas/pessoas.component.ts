@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HttpclientService } from 'src/app/services/httpclient/httpclient.service';
-import { LoaderService } from '../../loaderNovo/loader.service';
+import { LoaderService } from '../../loader/loader.service';
 import { List, SwapiResponse } from 'src/types/types';
 @Component({
   selector: 'app-pessoas',

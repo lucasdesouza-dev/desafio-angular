@@ -13,8 +13,8 @@ import { RotaComponent } from './rota/rota.component';
 import { ListaComponent } from './lista/lista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetalhesComponent } from './detalhes/detalhes.component';
-import { LoaderModule } from './loaderNovo/loader.module';
-import { LoaderService } from './loaderNovo/loader.service';
+import { LoaderModule } from './loader/loader.module';
+import { LoaderService } from './loader/loader.service';
 
 
 
@@ -31,13 +31,13 @@ import { LoaderService } from './loaderNovo/loader.service';
     RotaComponent,
     ListaComponent,
     DetalhesComponent,
-   
+
   ],
   imports: [
-    CommonModule,RouterModule,HttpClientModule
-  ],exports:[
+    CommonModule, RouterModule, HttpClientModule
+  ], exports: [
     ButtonComponent,
-    HeaderComponent, 
+    HeaderComponent,
     PessoasComponent,
     PlanetasComponent,
     FilmesComponent,
@@ -45,8 +45,8 @@ import { LoaderService } from './loaderNovo/loader.service';
     VeiculosComponent,
     EspaconavesComponent,
     RotaComponent,
-    ListaComponent,DetalhesComponent,],
+    ListaComponent, DetalhesComponent,],
   providers: [],
- 
+
 })
 export class ComponentsModule { }

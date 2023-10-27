@@ -1,6 +1,6 @@
 <div
-  *ngIf="detalhes"
-  class="sm:p-4 p-2 shadow-boxlist flex flex-col rounded-xl border border-[#777777 ]"
+  *ngIf="loader | async"
+  class="z-10 relative w-max sm:p-4 p-2 shadow-boxlist flex flex-col rounded-xl border border-[#777777 ]"
 >
   <h1 class="text-4xl leading-14">{{ getName() }}</h1>
   <div class="p-4">
@@ -15,14 +15,14 @@
       <p class="text-sm">gender: {{ detalhes.gender }}</p>
     </div>
     <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'planets'">
-      <p class="text-sm">climate:{{ detalhes.climate }}</p>
-      <p class="text-sm">diameter: {{ detalhes.diameter }}</p>
-      <p class="text-sm">gravity: {{ detalhes.gravity }}</p>
-      <p class="text-sm">orbital_period: {{ detalhes.orbital_period }}</p>
-      <p class="text-sm">terrain: {{ detalhes.terrain }}</p>
-      <p class="text-sm">surface_water: {{ detalhes.surface_water }}</p>
-      <p class="text-sm">rotation_period: {{ detalhes.rotation_period }}</p>
-      <p class="text-sm">population: {{ detalhes.population }}</p>
+      <p class="text-sm">clima:{{ detalhes.climate }}</p>
+      <p class="text-sm">diâmetro: {{ detalhes.diameter }}</p>
+      <p class="text-sm">gravidade: {{ detalhes.gravity }}</p>
+      <p class="text-sm">período orbital: {{ detalhes.orbital_period }}</p>
+      <p class="text-sm">terreno: {{ detalhes.terrain }}</p>
+      <p class="text-sm">água na superfície: {{ detalhes.surface_water }}</p>
+      <p class="text-sm">período_rotação: {{ detalhes.rotation_period }}</p>
+      <p class="text-sm">população: {{ detalhes.population }}</p>
     </div>
     <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'films'">
       <div>
@@ -82,21 +82,23 @@
       <p class="text-sm">manufacturer: {{ detalhes.manufacturer }}</p>
     </div>
   </div>
-  <div class="px-2">
+  <div class="px-2 z-50">
     <h1 class="text-2xl">Links Realcionados</h1>
     <div class="border-b border-[#DDDDDD]"></div>
-    <div class="flex items-center flex-wrap">
+    <div class="flex flex-wrap z-20">
       <div class="p-4" *ngIf="films.length != 0">
         <h2>Filmes</h2>
         <ul class="flex flex-col gap-1">
-          <li class="text-sm" *ngFor="let film of films">{{ film.title }}</li>
+          <li class="text-sm" *ngFor="let film of films">
+            <span class="underline">{{ film.title }}</span>
+          </li>
         </ul>
       </div>
       <div class="p-4 m-2" *ngIf="espaconaves.length != 0">
         <h2 class="">Espaçonaves</h2>
         <ul>
           <li class="text-sm" *ngFor="let espaconave of espaconaves">
-            {{ espaconave.name }}
+            <span class="underline">{{ espaconave.name }}</span>
           </li>
         </ul>
       </div>
@@ -104,7 +106,7 @@
         <h2>Veiculos</h2>
         <ul>
           <li class="text-sm" *ngFor="let veiculo of veiculos">
-            {{ veiculo.name }}
+            <span class="underline">{{ veiculo.name }}</span>
           </li>
         </ul>
       </div>
@@ -112,7 +114,7 @@
         <h2>Planetas</h2>
         <ul>
           <li class="text-sm" *ngFor="let planeta of planetas">
-            {{ planeta.name }}
+            <span class="underline">{{ planeta.name }}</span>
           </li>
         </ul>
       </div>
@@ -120,7 +122,7 @@
         <h2>Especies</h2>
         <ul>
           <li class="text-sm" *ngFor="let especie of especies">
-            {{ especie.name }}
+            <span class="underline">{{ especie.name }}</span>
           </li>
         </ul>
       </div>
@@ -128,11 +130,17 @@
         <h2>Pessoas</h2>
         <ul>
           <li class="text-sm" *ngFor="let pessoa of pessoas">
-            {{ pessoa.name }}
+            <span class="underline">{{ pessoa.name }}</span>
           </li>
         </ul>
       </div>
     </div>
+  </div>
+  <div class="absolute -right-32 -bottom-24">
+    <div
+      class="absolute bottom-24 right-32 bg-white opacity-50 w-40 h-48"
+    ></div>
+    <img src="../../../assets/planet-ringed 1.svg" alt="" />
   </div>
 </div>
 <div class="flex flex-col"></div>
