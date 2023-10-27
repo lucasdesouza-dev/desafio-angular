@@ -7,12 +7,12 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./listagem.component.scss']
 })
 export class ListagemComponent implements OnInit {
-  rota!:string
-  tab:number=0
-  urlParts! :string[]
-  urlDetalhes!:string
+  rota!: string
+  tab: number = 0
+  urlParts!: string[]
+  urlDetalhes!: string
   constructor(
-    
+
     private router: Router
   ) {
     this.router.events.subscribe(event => {
@@ -21,41 +21,41 @@ export class ListagemComponent implements OnInit {
         this.urlParts = event.url.split('/');
       }
     });
-   
+
   }
-  btnDetalhespage(id:string,rota:string){
-   let idFormat =id.replace(/\s/g, "-")
+  btnDetalhespage(id: string, rota: string) {
+    let idFormat = id.replace(/\s/g, "-")
     let currentUrl = `/listagem/${rota}/${idFormat}`;
-  this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {  
-    this.router.navigate([currentUrl]);
-  });
-    
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+
   }
-  
+
   ngOnInit(): void {
     if (this.rota === '/listagem') {
       this.router.navigateByUrl('')
     }
-      
-    if (this.rota === '/listagem/pessoas') {
+
+    if (this.rota === '/listagem/peoples') {
       this.tab = 1
     }
-    if (this.rota === '/listagem/planetas') {
+    if (this.rota === '/listagem/planets') {
       this.tab = 2
     }
-    if (this.rota === '/listagem/filmes') {
+    if (this.rota === '/listagem/films') {
       this.tab = 3
     }
-    if (this.rota === '/listagem/especies') {
+    if (this.rota === '/listagem/species') {
       this.tab = 4
     }
-    if (this.rota === '/listagem/veiculos') {
+    if (this.rota === '/listagem/vehicles') {
       this.tab = 5
     }
-    if (this.rota === '/listagem/espaconaves') {
+    if (this.rota === '/listagem/starships') {
       this.tab = 6
     }
-    if (this.urlParts.length ===4) {
+    if (this.urlParts.length === 4) {
       this.tab = 7
     }
   }

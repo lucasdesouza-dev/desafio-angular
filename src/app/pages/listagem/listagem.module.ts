@@ -17,53 +17,53 @@ const routes: Routes = [
     component: ListagemComponent,
     children: [
       {
-        path: 'pessoas',
+        path: 'peoples',
         component: PessoasComponent,
         children: [
           {
-          path: ':id',
-          component: DetalhesComponent,
-        }]
-      },{
-        path: 'planetas',
+            path: ':id',
+            component: DetalhesComponent,
+          }]
+      }, {
+        path: 'planets',
         component: PlanetasComponent,
         children: [
           {
-          path: ':id',
-          component: DetalhesComponent,
-        }]
-      },{
-        path: 'filmes',
+            path: ':id',
+            component: DetalhesComponent,
+          }]
+      }, {
+        path: 'films',
         component: FilmesComponent,
         children: [
           {
-          path: ':id',
-          component: DetalhesComponent,
-        }]
-      },{
-        path: 'especies',
+            path: ':id',
+            component: DetalhesComponent,
+          }]
+      }, {
+        path: 'species',
         component: EspeciesComponent,
         children: [
           {
-          path: ':id',
-          component: DetalhesComponent,
-        }]
-      },{
-        path: 'veiculos',
+            path: ':id',
+            component: DetalhesComponent,
+          }]
+      }, {
+        path: 'vehicles',
         component: VeiculosComponent,
         children: [
           {
-          path: ':id',
-          component: DetalhesComponent,
-        }]
-      },{
-        path: 'espaconaves',
+            path: ':id',
+            component: DetalhesComponent,
+          }]
+      }, {
+        path: 'starships',
         component: EspaconavesComponent,
         children: [
           {
-          path: ':id',
-          component: DetalhesComponent,
-        }]
+            path: ':id',
+            component: DetalhesComponent,
+          }]
       },
     ]
   },
@@ -72,11 +72,11 @@ const routes: Routes = [
 @NgModule({
   declarations: [ListagemComponent],
 
-exports:[ComponentsModule],
+  exports: [ComponentsModule],
   imports: [
     CommonModule,
-    ComponentsModule, 
+    ComponentsModule,
     RouterModule.forChild(routes),
-    ]
+  ]
 })
 export class ListagemModule { }

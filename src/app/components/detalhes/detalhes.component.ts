@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { HttpclientService } from 'src/app/services/httpclient/httpclient.service';
 import { Character, Film, List, Planet, Species, Starship, Vehicle } from 'src/types/types';
 import { LoaderService } from '../loader/loader.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalhes',
@@ -11,7 +12,7 @@ import { LoaderService } from '../loader/loader.service';
 })
 export class DetalhesComponent implements OnInit {
   urlDetalhes!: string[]
-  constructor(private httpclientService: HttpclientService, private loaderService: LoaderService) { }
+  constructor(private router: Router, private httpclientService: HttpclientService, private loaderService: LoaderService) { }
   detalhes!: List
   name!: string
   films: Film[] = []
@@ -20,11 +21,26 @@ export class DetalhesComponent implements OnInit {
   planetas: Planet[] = []
   especies: Species[] = []
   pessoas: Character[] = []
-  planetaNatal!: string
+  planetaNatal!: Planet
   loader: Observable<boolean> = this.loaderService.isLoading$.pipe(map(val => !val))
 
   ngOnInit(): void {
     this.getdata()
+  }
+  detalhesRota(url: string, name: string) {
+    let nameFormat = name.replace(/\s/g, "-")
+    let rota = this.geturlReaftorado(url)
+    sessionStorage.setItem("@url", JSON.stringify(rota))
+    let currentUrl = `listagem/${rota[0] == "people" ? "peoples" : rota[0]}/${nameFormat}`
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+
+  }
+
+  geturlReaftorado(url: string) {
+    const rota = url.split('/')
+    return [rota[4], rota[5]]
   }
 
   async getdata() {
@@ -100,7 +116,7 @@ export class DetalhesComponent implements OnInit {
   getPlanetaNatal(url: string) {
     const filmUrl = url.split('/')
     this.httpclientService.get(`${filmUrl[4]}/${filmUrl[5]}`).subscribe((res) => {
-      this.planetaNatal = res.name
+      this.planetaNatal = res
     })
   }
   getFilmes(film: string) {

@@ -6,7 +6,12 @@
   <div class="p-4">
     <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'people'">
       <p class="text-sm">
-        Planeta Natal: <span class="underline">{{ planetaNatal }}</span>
+        Planeta Natal:
+        <span
+          (click)="detalhesRota(planetaNatal.url, planetaNatal.name)"
+          class="underline cursor-pointer"
+          >{{ planetaNatal.name }}</span
+        >
       </p>
       <p class="text-sm">altura: {{ detalhes.height }}cm</p>
       <p class="text-sm">Massa: {{ detalhes.mass }}kg</p>
@@ -31,11 +36,16 @@
         <p class="text-sm">producer: {{ detalhes.producer }}</p>
         <p class="text-sm">release_date: {{ detalhes.release_date }}</p>
       </div>
-      <p class="text-sm">opening_crawl: {{ detalhes.opening_crawl }}</p>
+      <p class="text-sm w-96">opening_crawl: {{ detalhes.opening_crawl }}</p>
     </div>
     <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'species'">
       <p class="text-sm">
-        Planeta Natal: <span class="underline">{{ planetaNatal }}</span>
+        Planeta Natal:
+        <span
+          (click)="detalhesRota(planetaNatal.url, planetaNatal.name)"
+          class="underline cursor-pointer"
+          >{{ planetaNatal }}</span
+        >
       </p>
       <p class="text-sm">average_height: {{ detalhes.average_height }}cm</p>
       <p class="text-sm">
@@ -90,7 +100,11 @@
         <h2>Filmes</h2>
         <ul class="flex flex-col gap-1">
           <li class="text-sm" *ngFor="let film of films">
-            <span class="underline">{{ film.title }}</span>
+            <span
+              (click)="detalhesRota(film.url, film.title)"
+              class="underline cursor-pointer"
+              >{{ film.title }}</span
+            >
           </li>
         </ul>
       </div>
@@ -98,7 +112,11 @@
         <h2 class="">Espaçonaves</h2>
         <ul>
           <li class="text-sm" *ngFor="let espaconave of espaconaves">
-            <span class="underline">{{ espaconave.name }}</span>
+            <span
+              (click)="detalhesRota(espaconave.url, espaconave.name)"
+              class="underline cursor-pointer"
+              >{{ espaconave.name }}</span
+            >
           </li>
         </ul>
       </div>
@@ -106,7 +124,11 @@
         <h2>Veiculos</h2>
         <ul>
           <li class="text-sm" *ngFor="let veiculo of veiculos">
-            <span class="underline">{{ veiculo.name }}</span>
+            <span
+              (click)="detalhesRota(veiculo.url, veiculo.name)"
+              class="underline cursor-pointer"
+              >{{ veiculo.name }}</span
+            >
           </li>
         </ul>
       </div>
@@ -114,7 +136,11 @@
         <h2>Planetas</h2>
         <ul>
           <li class="text-sm" *ngFor="let planeta of planetas">
-            <span class="underline">{{ planeta.name }}</span>
+            <span
+              (click)="detalhesRota(planeta.url, planeta.name)"
+              class="underline cursor-pointer"
+              >{{ planeta.name }}</span
+            >
           </li>
         </ul>
       </div>
@@ -122,7 +148,11 @@
         <h2>Especies</h2>
         <ul>
           <li class="text-sm" *ngFor="let especie of especies">
-            <span class="underline">{{ especie.name }}</span>
+            <span
+              (click)="detalhesRota(especie.url, especie.name)"
+              class="underline cursor-pointer"
+              >{{ especie.name }}</span
+            >
           </li>
         </ul>
       </div>
@@ -130,7 +160,11 @@
         <h2>Pessoas</h2>
         <ul>
           <li class="text-sm" *ngFor="let pessoa of pessoas">
-            <span class="underline">{{ pessoa.name }}</span>
+            <span
+              (click)="detalhesRota(pessoa.url, pessoa.name)"
+              class="underline cursor-pointer"
+              >{{ pessoa.name }}</span
+            >
           </li>
         </ul>
       </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Button} from "../../../types/types"
+import { Button } from "../../../types/types"
 
 @Component({
   selector: 'app-home',
@@ -7,14 +7,14 @@ import {Button} from "../../../types/types"
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  buttons:Button[] = 
-  [
-    {titulo:"Pessoas",rota:"pessoas"},
-    {titulo:"Planetas",rota:"planetas"},
-    {titulo:"Filmes",rota:"filmes"},
-    {titulo:"Espécies",rota:"especies"},
-    {titulo:"Veículos",rota:"veiculos"},
-    {titulo:"Espaçonaves",rota:"espaconaves"}
-  ]
+  buttons: Button[] =
+    [
+      { titulo: "Pessoas", rota: "peoples" },
+      { titulo: "Planetas", rota: "planets" },
+      { titulo: "Filmes", rota: "films" },
+      { titulo: "Espécies", rota: "species" },
+      { titulo: "Veículos", rota: "vehicles" },
+      { titulo: "Espaçonaves", rota: "starships" }
+    ]
 
 }
