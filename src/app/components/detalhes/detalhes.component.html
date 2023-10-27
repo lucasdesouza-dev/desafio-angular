@@ -1,9 +1,9 @@
 <div
   *ngIf="loader | async"
-  class="z-10 relative w-max sm:p-4 p-2 shadow-boxlist flex flex-col rounded-xl border border-[#777777 ]"
+  class="z-10 relative sm:p-4 p-2 shadow-boxlist flex flex-col rounded-xl border border-[#777777 ]"
 >
   <h1 class="text-4xl leading-14">{{ getName() }}</h1>
-  <div class="p-4">
+  <div class="p-4 z-10">
     <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'people'">
       <p class="text-sm">
         Planeta Natal:
@@ -14,7 +14,9 @@
         >
       </p>
       <p class="text-sm">altura: {{ detalhes.height }}cm</p>
-      <p class="text-sm">Massa: {{ detalhes.mass }}kg</p>
+      <p class="text-sm">
+        Massa: {{ detalhes.mass == "unknown" ? "N/A" : detalhes.mass + "kg" }}
+      </p>
       <p class="text-sm">skin color: {{ detalhes.skin_color }}</p>
       <p class="text-sm">eye color: {{ detalhes.eye_color }}</p>
       <p class="text-sm">gender: {{ detalhes.gender }}</p>
@@ -44,7 +46,7 @@
         <span
           (click)="detalhesRota(planetaNatal.url, planetaNatal.name)"
           class="underline cursor-pointer"
-          >{{ planetaNatal }}</span
+          >{{ planetaNatal.name }}</span
         >
       </p>
       <p class="text-sm">average_height: {{ detalhes.average_height }}cm</p>
