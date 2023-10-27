@@ -1,116 +1,138 @@
-<div *ngIf="detalhes  " class=" p-4 shadow-boxlist flex flex-col  rounded-xl border border-[#777777
-] ">
-
-  <h1
-    class="text-4xl leading-14 ">{{getName()}}
-  </h1> 
+<div
+  *ngIf="detalhes"
+  class="p-4 shadow-boxlist flex flex-col rounded-xl border border-[#777777 ]"
+>
+  <h1 class="text-4xl leading-14">{{ getName() }}</h1>
   <div class="p-4">
-  <div 
-  class=" grid grid-cols-2 gap-2"
-  *ngIf="urlDetalhes[0] ==='people'">
-    <p class="text-sm" > Planeta Natal: <span class="underline">{{ planetaNatal }}</span></p>
-    <p class="text-sm">altura: {{detalhes.height}}cm</p>
-    <p class="text-sm">Massa: {{detalhes.mass}}kg</p>
-    <p class="text-sm">skin color: {{detalhes.skin_color}}</p>
-    <p class="text-sm">eye color: {{detalhes.eye_color}}</p>
-    <p class="text-sm">gender: {{detalhes.gender}}</p>
+    <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'people'">
+      <p class="text-sm">
+        Planeta Natal: <span class="underline">{{ planetaNatal }}</span>
+      </p>
+      <p class="text-sm">altura: {{ detalhes.height }}cm</p>
+      <p class="text-sm">Massa: {{ detalhes.mass }}kg</p>
+      <p class="text-sm">skin color: {{ detalhes.skin_color }}</p>
+      <p class="text-sm">eye color: {{ detalhes.eye_color }}</p>
+      <p class="text-sm">gender: {{ detalhes.gender }}</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'planets'">
+      <p class="text-sm">climate:{{ detalhes.climate }}</p>
+      <p class="text-sm">diameter: {{ detalhes.diameter }}</p>
+      <p class="text-sm">gravity: {{ detalhes.gravity }}</p>
+      <p class="text-sm">orbital_period: {{ detalhes.orbital_period }}</p>
+      <p class="text-sm">terrain: {{ detalhes.terrain }}</p>
+      <p class="text-sm">surface_water: {{ detalhes.surface_water }}</p>
+      <p class="text-sm">rotation_period: {{ detalhes.rotation_period }}</p>
+      <p class="text-sm">population: {{ detalhes.population }}</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'films'">
+      <div>
+        <p class="text-sm">director: {{ detalhes.director }}</p>
+        <p class="text-sm">episode_id: {{ detalhes.episode_id }}</p>
+        <p class="text-sm">producer: {{ detalhes.producer }}</p>
+        <p class="text-sm">release_date: {{ detalhes.release_date }}</p>
+      </div>
+      <p class="text-sm">opening_crawl: {{ detalhes.opening_crawl }}</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'species'">
+      <p class="text-sm">
+        Planeta Natal: <span class="underline">{{ planetaNatal }}</span>
+      </p>
+      <p class="text-sm">average_height: {{ detalhes.average_height }}cm</p>
+      <p class="text-sm">
+        average_lifespan: {{ detalhes.average_lifespan }} anos
+      </p>
+      <p class="text-sm">classification: {{ detalhes.classification }}</p>
+      <p class="text-sm">designation: {{ detalhes.designation }}</p>
+      <p class="text-sm">eye_colors: {{ detalhes.eye_colors }}</p>
+      <p class="text-sm">hair_colors: {{ detalhes.hair_colors }}</p>
+      <p class="text-sm">language: {{ detalhes.language }}</p>
+      <p class="text-sm">skin_colors: {{ detalhes.skin_colors }}</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'vehicles'">
+      <p class="text-sm">
+        cargo_capacity:
+        {{ detalhes.cargo_capacity }}
+      </p>
+      <p class="text-sm">consumables: {{ detalhes.consumables }}</p>
+      <p class="text-sm">cost_in_credits : {{ detalhes.cost_in_credits }}</p>
+      <p class="text-sm">crew: {{ detalhes.crew }}</p>
+      <p class="text-sm">length: {{ detalhes.length }}</p>
+      <p class="text-sm">
+        max_atmosphering_speed: {{ detalhes.max_atmosphering_speed }}
+      </p>
+      <p class="text-sm">model: {{ detalhes.model }}</p>
+      <p class="text-sm">passengers: {{ detalhes.passengers }}</p>
+      <p class="text-sm">vehicle_class: {{ detalhes.vehicle_class }}</p>
+      <p class="text-sm">manufacturer: {{ detalhes.manufacturer }}</p>
+    </div>
+    <div class="grid grid-cols-2 gap-2" *ngIf="urlDetalhes[0] === 'starships'">
+      <p class="text-sm">MGLT: {{ detalhes.MGLT }}</p>
+      <p class="text-sm">cargo_capacity : {{ detalhes.cargo_capacity }}</p>
+      <p class="text-sm">consumables: {{ detalhes.consumables }}</p>
+      <p class="text-sm">cost_in_credits: {{ detalhes.cost_in_credits }}</p>
+      <p class="text-sm">crew: {{ detalhes.crew }}</p>
+      <p class="text-sm">hyperdrive_rating: {{ detalhes.hyperdrive_rating }}</p>
+      <p class="text-sm">length: {{ detalhes.length }}</p>
+      <p class="text-sm">
+        max_atmosphering_speed: {{ detalhes.max_atmosphering_speed }}
+      </p>
+      <p class="text-sm">model: {{ detalhes.model }}</p>
+      <p class="text-sm">passengers: {{ detalhes.passengers }}</p>
+      <p class="text-sm">starship_class: {{ detalhes.starship_class }}</p>
+      <p class="text-sm">manufacturer: {{ detalhes.manufacturer }}</p>
+    </div>
   </div>
-  <div 
-  class=" grid grid-cols-2 gap-2"
-  *ngIf="urlDetalhes[0] ==='planets'">
-    <p class="text-sm" > climate:{{ detalhes.climate}}</p>
-    <p class="text-sm">diameter: {{detalhes.diameter}}</p>
-    <p class="text-sm">gravity: {{detalhes.gravity}}</p>
-    <p class="text-sm">orbital_period: {{detalhes.orbital_period}}</p>
-    <p class="text-sm">terrain: {{detalhes.terrain}}</p>
-    <p class="text-sm">surface_water: {{detalhes.surface_water}}</p>
-    <p class="text-sm">rotation_period: {{detalhes.rotation_period}}</p>
-    <p class="text-sm">population: {{detalhes.population}}</p>
-  </div>
-  <div
-  class=" grid grid-cols-2 gap-2"
-  *ngIf="urlDetalhes[0] ==='films'">
-  <div>
-    <p class="text-sm">director: {{detalhes.director}}</p>
-    <p class="text-sm">episode_id: {{detalhes.episode_id}}</p>
-    <p class="text-sm">producer: {{detalhes.producer}}</p>
-    <p class="text-sm">release_date: {{detalhes.release_date}}</p></div>
-    <p class="text-sm">opening_crawl: {{detalhes.opening_crawl}}</p>
-  </div>
-  <div 
-  class=" grid grid-cols-2 gap-2"
-  *ngIf="urlDetalhes[0] ==='species'">
-    <p class="text-sm" > Planeta Natal: <span class="underline">{{ planetaNatal }}</span></p>
-    <p class="text-sm">average_height: {{detalhes.average_height}}cm</p>
-    <p class="text-sm">average_lifespan: {{detalhes.average_lifespan}} anos</p>
-    <p class="text-sm">classification: {{detalhes.classification}}</p>
-    <p class="text-sm">designation: {{detalhes.designation}}</p>
-    <p class="text-sm">eye_colors: {{detalhes.eye_colors}}</p>
-    <p class="text-sm">hair_colors: {{detalhes.hair_colors}}</p>
-    <p class="text-sm">language: {{detalhes.language}}</p>
-    <p class="text-sm">skin_colors: {{detalhes.skin_colors}}</p>
-
-  </div>
-  <div 
-  class=" grid grid-cols-2 gap-2"
-  *ngIf="urlDetalhes[0] ==='vehicles'">
-    <p class="text-sm" > Planeta Natal: <span class="underline">{{detalhes.homeworld}}</span></p>
-    <p class="text-sm">height: {{detalhes.height}}cm</p>
-    <p class="text-sm">mass: {{detalhes.mass}}kg</p>
-    <p class="text-sm">skin color: {{detalhes.skin_color}}</p>
-    <p class="text-sm">eye color: {{detalhes.eye_color}}</p>
-    <p class="text-sm">gender: {{detalhes.gender}}</p>
-  </div>
-  <div 
-  class=" grid grid-cols-2 gap-2"
-  *ngIf="urlDetalhes[0] ==='starships'">
-    <p class="text-sm" > Planeta Natal: <span class="underline">{{detalhes.homeworld}}</span></p>
-    <p class="text-sm">height: {{detalhes.height}}cm</p>
-    <p class="text-sm">mass: {{detalhes.mass}}kg</p>
-    <p class="text-sm">skin color: {{detalhes.skin_color}}</p>
-    <p class="text-sm">eye color: {{detalhes.eye_color}}</p>
-    <p class="text-sm">gender: {{detalhes.gender}}</p>
-  </div>
-</div>
-  <div class="  px-2">
-    <h1 class="text-2xl ">Links Realcionados</h1>
+  <div class="px-2">
+    <h1 class="text-2xl">Links Realcionados</h1>
     <div class="border-b border-[#DDDDDD]"></div>
     <div class="flex">
-    <div
-    class="p-4 "
-    *ngIf="films.length != 0"> <h2>Filmes</h2>
-      <ul class="flex flex-col gap-1">
-      <li class="text-sm" *ngFor="let film of films">{{film.title}}</li>
-    </ul>
-  </div>
-  <div  class="p-4 m-2" *ngIf="espaconaves.length != 0"> <h2 class="">Espaçonaves</h2>
-    <ul>
-    <li class="text-sm" *ngFor="let espaconave of espaconaves">{{espaconave.name}}</li>
-  </ul>
-</div>
-<div  class="p-4 m-2" *ngIf="veiculos.length != 0"> <h2>Veiculos</h2>
-  <ul>
-  <li class="text-sm " *ngFor="let veiculo of veiculos">{{veiculo.name}}</li>
-</ul>
-</div>
-<div  class="p-4 m-2" *ngIf="planetas.length != 0"> <h2>Planetas</h2>
-  <ul>
-  <li class="text-sm" *ngFor="let planeta of planetas">{{planeta.name}}</li>
-</ul>
-</div>
-<div  class="p-4 m-2" *ngIf="especies.length != 0"> <h2>Especies</h2>
-  <ul>
-  <li class="text-sm" *ngFor="let especie of especies">{{especie.name}}</li>
-</ul>
-</div>
-<div  class="p-4 m-2" *ngIf="pessoas.length != 0"> <h2>Pessoas</h2>
-  <ul>
-  <li class="text-sm" *ngFor="let pessoa of pessoas">{{pessoa.name}}</li>
-</ul>
-</div>
+      <div class="p-4" *ngIf="films.length != 0">
+        <h2>Filmes</h2>
+        <ul class="flex flex-col gap-1">
+          <li class="text-sm" *ngFor="let film of films">{{ film.title }}</li>
+        </ul>
+      </div>
+      <div class="p-4 m-2" *ngIf="espaconaves.length != 0">
+        <h2 class="">Espaçonaves</h2>
+        <ul>
+          <li class="text-sm" *ngFor="let espaconave of espaconaves">
+            {{ espaconave.name }}
+          </li>
+        </ul>
+      </div>
+      <div class="p-4 m-2" *ngIf="veiculos.length != 0">
+        <h2>Veiculos</h2>
+        <ul>
+          <li class="text-sm" *ngFor="let veiculo of veiculos">
+            {{ veiculo.name }}
+          </li>
+        </ul>
+      </div>
+      <div class="p-4 m-2" *ngIf="planetas.length != 0">
+        <h2>Planetas</h2>
+        <ul>
+          <li class="text-sm" *ngFor="let planeta of planetas">
+            {{ planeta.name }}
+          </li>
+        </ul>
+      </div>
+      <div class="p-4 m-2" *ngIf="especies.length != 0">
+        <h2>Especies</h2>
+        <ul>
+          <li class="text-sm" *ngFor="let especie of especies">
+            {{ especie.name }}
+          </li>
+        </ul>
+      </div>
+      <div class="p-4 m-2" *ngIf="pessoas.length != 0">
+        <h2>Pessoas</h2>
+        <ul>
+          <li class="text-sm" *ngFor="let pessoa of pessoas">
+            {{ pessoa.name }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-<div class="flex flex-col">
-
-</div>
+<div class="flex flex-col"></div>
