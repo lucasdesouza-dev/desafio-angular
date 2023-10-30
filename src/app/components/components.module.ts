@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetalhesComponent } from './detalhes/detalhes.component';
 import { LoaderModule } from './loader/loader.module';
 import { LoaderService } from './loader/loader.service';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -30,7 +31,7 @@ import { LoaderService } from './loader/loader.service';
     EspaconavesComponent,
     RotaComponent,
     ListaComponent,
-    DetalhesComponent,
+    DetalhesComponent, SearchComponent
 
   ],
   imports: [
@@ -45,7 +46,7 @@ import { LoaderService } from './loader/loader.service';
     VeiculosComponent,
     EspaconavesComponent,
     RotaComponent,
-    ListaComponent, DetalhesComponent,],
+    ListaComponent, DetalhesComponent, SearchComponent],
   providers: [],
 
 })

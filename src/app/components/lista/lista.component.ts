@@ -12,7 +12,13 @@ export class ListaComponent implements OnInit {
   @Output() btnDetalhes = new EventEmitter();
   loader: Observable<boolean> = this.loaderService.isLoading$.pipe(map(val => !val))
   @Input() lista!: List[]
+  searchResults: List[] = []
   ngOnInit(): void {
+
+  }
+  handleSearchEvent(results: any): void {
+    this.searchResults = results
+    console.log(results)
   }
 
   detalhes(idtitle: string, url: string) {
